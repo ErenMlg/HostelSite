@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../Bölüm 3/helper-class.css">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      main{
+        margin-top: 53px;
+      }
+      body {
+        margin: 0;
+        font-family: "Lato", sans-serif;
+      }
+      #showcase {
+        background:
+        linear-gradient(to bottom, rgba(255, 0, 0, 0.2)  0%,rgba(255, 26, 26, 0.15) 100%),
+        url(../../../images/bg.jpeg);
+        background-position: center;
+        height: 500px;
+        padding: 10px;
+        position: relative;
+        background-size: cover;
+        background-attachment: fixed;
+      }
+      .showcase-explanation{
+        top: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        left: 50%;
+        background-color: rgba(46, 76, 109, 0.4);
+        padding: 30px;
+        width: 70%;
+      }
+      .showcase-explanation h3{
+        margin: 0;
+        color: #fff;
+        font-size: 48px;
+      }
+      .showcase-explanation p{
+        margin: 0;
+        color: #fff;
+        font-size: 30px;
+      }
+      #how-it-works {
+        background-color: #fff;
+        margin-top: 50px;
+        text-align: center;
+      }
+      .main-header {
+        background-color: #fc997c;
+        padding: 8px 16px;
+        position: fixed;
+        width: 100%;
+        text-align: center;
+        top: 0;
+        z-index: 1;
+      }
+      .main-nav {
+        display: inline-block;
+        width: calc(100% - 103px);
+        text-align: right;
+      }
+      .main-nav__items {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .main-nav__item {
+        display: inline-block;
+        margin: 0 8px;
+      }
+      .main-header__logo {
+        color: #fff;
+        text-decoration: none;
+        font-size: 21px;
+        font-weight: bold;
+      }
+      .main-nav__item a {
+        text-decoration: none;
+        color: #fff;
+      }
+      .main-nav__item::before {
+        content: "\2022";
+        text-align: center;
+        padding-right: 3px;
+        color: #fff;
+      }
+      .main-nav__item:hover::before,
+      .main-nav__item:hover,
+      .main-nav__item a:hover {
+        color: #2e4c6d;
+      }
+      .main-nav__item:active::before,
+      .main-nav__item a:active {
+        color: #fff;
+      }
+      
+      .main-nav__item--login::before {
+        content: none;
+      }
+      
+      .how-it-works_row {
+        margin-bottom: 40px;
+      }
+      .icon-box_col {
+        width: 30%;
+        box-sizing: border-box;
+        display: inline-block;
+        padding: 16px;
+        margin: 8px;
+      }
+      .row{
+        margin-bottom: 40px;
+      }
+      .icon-box_col h3 {
+        color: #3e4555;
+        font-size: 26px;
+      }
+      .icon-box_col i {
+        color: #2e4c6d;
+      }
+      .features-col {
+        display: inline-block;
+        width: 50%;
+        height: 350px;
+        vertical-align: top;
+      }
+      #features-col-left {
+        background-image:linear-gradient(to bottom, rgba(255, 0, 0, 0.2)  0%,rgba(255, 26, 26, 0.15) 100%),
+         url("../../../images/features.jpeg");
+        background-size: cover;
+        background-position: top center;
+      }
+      #features-col-right {
+        padding: 40px;
+        vertical-align: top;
+        background-color: #edf5f7;
+      }
+     
+      #features-col-right h3 {
+        font-size: 30px;
+      }
+      .plans-title, .how-it-works_row  h2{
+        text-align: center;
+        margin-bottom: 40px;
+        color: #3e4555;
+        font-size: 30px;
+        font-weight: 600;
+      }
+      .plan{
+        text-align: center;
+        padding:5px;
+        margin: 2px;
+        width: 32%;
+        float: left;
+      }
+      .inner_plan{
+        padding: 25px 10px;
+        background-color: #edf5f7;
+        border-radius: 10px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        transition: box-shadow .6s;
+      }
+
+      .inner_plan:hover{
+        box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+      }
+
+      .clearfix::after{
+        display: block;
+        content: "";
+        clear: both;
+      }
+      .container{
+        margin: 0 auto;
+        width: 1000px;
+      }
+      .recommended_plan{
+        background-color: #2e4c6d!important;
+        color: #fff;
+      }
+      .plan__features{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .plan__features li{
+        margin: 6px 0;
+      }
+      .plan__recommended{
+        position: relative;
+        top: -20px;
+      }
+      .upbutton{
+        font-size: 45px;
+        color: #fc997c;
+        position: fixed;
+        right: 10px;
+        bottom: 10px;    
+        transition: color .6s;
+      }
+      .upbutton:hover{
+        color: #fa3e05;
+      }
+      html{
+        scroll-behavior: smooth
+      }
+      .container3{
+        width: 70%;
+        text-align: center;
+        display: inline-block;
+      }
+      #explanation{
+        width: 100%;
+        background: linear-gradient(to bottom, rgba(252, 153, 124, 1)  0%,rgba(252, 153, 124, 0.9) 100%);
+      }
+      .explanation-row{
+        display: inline-block;
+        width: 30%;
+        color: #fff;
+        margin: 0;
+        text-align: center;
+        padding: 20px;
+      }
+      .explanation-container{
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .explanation-container h3, .explanation-container p{
+        margin: 0;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- width: calc matematiksel işlem yaptırır -->
+    <a id="top"></a>
+    <header class="main-header">
+      <div class="container3">
+      <a href="" class="main-header__logo">Movie App</a>
+      <nav class="main-nav">
+        <ul class="main-nav__items">
+          <li class="main-nav__item">
+            <a href="../border.html">Filmer</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="../box-model.html">Diziler</a>
+          </li>
+          <li class="main-nav__item main-nav__item--login">
+            <a class="btn btn-secondary" href="../box-sizing.html">Login</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    </header>
+    <main>
+      <section id="showcase">
+        <span class="showcase-explanation">
+          <h3>Welcome!</h3><br>
+          <p>Millions of Movies, TV Shows and people to discover. Explore now.</p>
+        </span>
+      </section>
+      <section id="how-it-works">
+        <div class="container3">
+        <div class="row">
+        <div class="how-it-works_row">
+          <h2>How It Works?</h2>
+          <br />
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus,
+          maxime!
+        </div>
+        <div class="how-it-works_row">
+          <div class="icon-box_col">
+            <i class="fa-solid fa-right-to-bracket fa-2x"></i>
+            <h3>Register</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
+              ullam atque quisquam autem excepturi reprehenderit.
+            </p>
+          </div>
+          <div class="icon-box_col">
+            <i class="fa-brands fa-buffer fa-2x"></i>
+            <h3>Choose a Plan</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
+              ullam atque quisquam autem excepturi reprehenderit.
+            </p>
+          </div>
+          <div class="icon-box_col">
+            <i class="fa-regular fa-face-smile-beam fa-2x"></i>
+            <h3>Enjoy Movies</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
+              ullam atque quisquam autem excepturi reprehenderit.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+      </section>
+      <section id="features">
+        <div class="row">
+         <div class="features-col" id="features-col-left"></div><div class="features-col" id="features-col-right">
+            <h3>Watch All Movies & TV Shows once they get released !</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+              id cupiditate ab saepe consequatur perferendis illo nam deserunt
+              amet rerum odit, consectetur assumenda odio quod, doloremque,
+              aspernatur est asperiores exercitationem?
+            </p>
+            <a class="btn btn-secondary" href="how-it-works.html">Viev Features</a>
+         </div>
+        </div>
+      </section>
+      <section id="plans">
+          <div class="row">
+              <h2 class="plans-title">Become a Premium Member</h2>
+            <div class="clearfix container">
+              <div class="plan">
+                <div class="inner_plan">
+                  <h2>Free</h2>
+                  <h3>0/Month</h3>
+                  <ul class="plan__features">
+                    <li>HD Available</li>
+                    <li>Unlimited Movies & TV Shows</li>
+                    <li>Watch on your phone & tablet</li>
+                    <li>Downloand and watch offline</li>
+                    <li>Screens you can watch</li>
+                    <li>First Month Free</li>
+                  </ul>
+                  <br>
+                    <div>
+                      <button class="btn btn-primary">Choose Plan</button>
+                    </div>
+                </div>
+              </div>
+              <div class="plan plan__recommended">
+                <div class="inner_plan recommended_plan">
+                  <h2>Recommended</h2>
+                  <h2> Basic</h2>
+                  <h3>$9.99/Month</h3>
+                  <ul class="plan__features">
+                    <li>HD Available</li>
+                    <li>Unlimited Movies & TV Shows</li>
+                    <li>Watch on your phone & tablet</li>
+                    <li>Downloand and watch offline</li>
+                    <li>Screens you can watch</li>
+                    <li>First Month Free</li>
+                  </ul>
+                  <br>
+                    <div>
+                      <button class="btn btn-primary">Choose Plan</button>
+                    </div>
+                </div>
+              </div>
+              <div class="plan">
+                <div class="inner_plan">
+                  <h2>Premium</h2>
+                  <h3>$19.99/Month</h3>
+                  <ul class="plan__features">
+                    <li>HD Available</li>
+                    <li>Unlimited Movies & TV Shows</li>
+                    <li>Watch on your phone & tablet</li>
+                    <li>Downloand and watch offline</li>
+                    <li>Screens you can watch</li>
+                    <li>First Month Free</li>
+                  </ul>
+                  <br>
+                    <div>
+                      <button class="btn btn-primary">Choose Plan</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+      <section id="explanation">
+        <div class="explanation-container">
+          <div class="explanation-row">
+            <h3>974</h3>
+            <p>Movies</p></div>
+          <div class="explanation-row">
+            <h3>472</h3>
+            <p>TV Shows</p></div>
+          <div class="explanation-row">
+            <h3>830</h3>
+            <p>Users</p></div>
+        </div>
+      </section>
+    </main>
+    <a href="#top"><i class="fa-solid fa-circle-chevron-up upbutton"></i></a>
+  </body>
+</html>
+
+<!-- inline block elemanlarda tarayıcı kendiliğinden 1px lik bir boşluk bırakıyor dolayısıyla biz yan yana yazmalıyız -->
